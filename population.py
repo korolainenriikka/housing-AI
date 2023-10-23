@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
+import altair
+dataframes = list()
 previous_population = pd.read_csv('data/silver/past_population_clean.csv')
 #previous_population.colums = ["Alue","2015","2016","2017","2018","2019","2020","2021","2022"]
 future_population = pd.read_csv('data/silver/future_population_clean.csv')
@@ -18,6 +19,10 @@ df.columns = [column.split(" ")[2] for column in df.columns]
 
 fig, ax = plt.subplots(figsize=(20, 10))
 
+df.to_csv(f"./data/gold/total_population_per_district.csv")
+import sys
+sys.exit()
+
 for column in df.columns:
     data = df[column].to_frame()
     data["h"] = data.reset_index().index
@@ -25,24 +30,33 @@ for column in df.columns:
     data["h"] = data["h"].fillna(0)
     standard_error = data[column][data.index <= 2023].std() / np.sqrt(len(data[column][data.index <= 2023]))
     #print(standard_error)
-    data["lower_ci"] = data[column] - 1.959964 * (np.sqrt(data["h"]) * standard_error)
-    data["upper_ci"] = data[column] + 1.959964 * (np.sqrt(data["h"]) * standard_error)
+    #data[f"{column}_Low_CI"] = data[column] - 1.959964 * (np.sqrt(data["h"]) * standard_error)
+    #data[f"{column}_High_CI"] = data[column] + 1.959964 * (np.sqrt(data["h"]) * standard_error)
     data = data.drop("h", axis = 1)
-    ax.plot(data.index, data[column], marker='o', label=column)
-    ax.fill_between(data.index, data['lower_ci'], data['upper_ci'], alpha=0.3, label=f'{column} 95% CI')
+    data.to_csv(f"./data/gold/total_population_per_district.csv")
 
-    for i, value in enumerate(data[column]):
-        ax.text(i, value, str(value), ha='center', va='bottom', fontsize=30)
+    #ax.plot(data.index, data[column], marker='o', label=column)
+    #ax.fill_between(data.index, data[f'{column}_lower_ci'], data[f'{column}_upper_ci'], alpha=0.3, label=f'{column} 95% CI')
+
+    #for i, value in enumerate(data[column]):
+    #    ax.text(i, value, str(value), ha='center', va='bottom', fontsize=30)
+        
+    #dataframes.append(data[[column, f'{column}_lower_ci', f'{column}_upper_ci']])
 
 # Add labels and legend
-ax.vlines(x=2023, ymin=0, ymax=140000, colors='red', linestyles='dashed', label='Current year')
-ax.set_xlabel('Year')
-ax.set_ylabel('Value')
-ax.set_xticks(df.index)
-ax.set_title('Time Series Plot with Confidence Intervals')
-ax.legend(title='District')
+#ax.vlines(x=2023, ymin=0, ymax=140000, colors='red', linestyles='dashed', label='Current year')
+#ax.set_xlabel('Year')
+#ax.set_ylabel('Value')
+#ax.set_xticks(df.index)
+#ax.set_title('Time Series Plot with Confidence Intervals')
+#ax.legend(title='District')
 
-plt.savefig("running.png")
+#plt.savefig("running.png")
+
+
+#population = pd.concat(dataframes, axis = 1)
+#print(population)
+#population.to_csv('data/gold/population.csv')
 
 # Plot each district as a time series
 #df.plot(marker='o')
