@@ -37,7 +37,7 @@ col2.metric(
 )
 
 # Show helsinki map districts
-image = Image.open("images/helsinki_districts.jpg")
+image = Image.open("./images/helsinki_districts.jpg")
 st.image(image, caption = "District map of Helsinki")
 
 
