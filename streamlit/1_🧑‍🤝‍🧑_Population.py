@@ -37,7 +37,7 @@ col2.metric(
 )
 
 # Show helsinki map districts
-image = Image.open("images/helsinki_districts.jpg")
+image = Image.open("./images/helsinki_districts.jpg")
 st.image(image, caption = "District map of Helsinki")
 
 
@@ -98,7 +98,7 @@ option = st.selectbox(
 )
 if option:
    
-   dataframes[option].to_csv(f"option_{option}.csv")
+   #dataframes[option].to_csv(f"option_{option}.csv")
    current_population, expected_population, growth_rate = metrics.get_population_metrics(dataframes[option], option)
    
    col1, col2 = st.columns(2)
