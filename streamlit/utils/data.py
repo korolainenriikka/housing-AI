@@ -24,3 +24,7 @@ def get_population_data() -> pd.DataFrame:
 def get_total_population_data() -> pd.DataFrame:
     df = pd.read_csv("./data/gold/total/total_population_per_district.csv", index_col=0)
     return df
+
+def get_housing_predictions() -> pd.DataFrame:
+    df = pd.read_csv("./data/gold/dataset/test_dataset_pred.csv", index_col=0)
+    return df
