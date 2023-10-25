@@ -1,6 +1,6 @@
 # Helsinki Region Housing Demand Estimation
 
-![Helsinki Skyline](images/helsinki_skyline.jpg)
+![Helsinki Skyline](streamlit/images/helsinki_districts.jpg)
 
 data links:
 
