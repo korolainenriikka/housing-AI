@@ -38,7 +38,7 @@ col2.metric(
 )
 
 # Show helsinki map districts
-image = Image.open("./images/helsinki_districts.jpg")
+image = Image.open("./streamlit/images/helsinki_districts.jpg")
 st.image(image, caption = "District map of Helsinki")
 
 col1, col2 = st.columns(2)
