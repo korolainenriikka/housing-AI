@@ -23,7 +23,7 @@ def get_housing_predictions_chart(df: pd.DataFrame, district_name: str) -> alt.C
     df_district[f"{column}_High_CI"] = df_district[column] + 1.959964 * (np.sqrt(df_district["h"]) * standard_error)
     df_district["Year"] = df_district["Year"].astype(str)
 
-    chart = alt.Chart(df_district).mark_line().encode(
+    chart = alt.Chart(df_district).mark_circle().encode(
         x='Year',
         y=alt.Y("Pred_Num_Apartments", title = "Num. Apartments"),
     )

@@ -1,12 +1,16 @@
 # Helsinki Region Housing Demand Estimation
 
-![Helsinki Skyline](images/helsinki_skyline.jpg)
+![Helsinki Skyline](streamlit/images/helsinki_districts.jpg)
 
 data links:
 
 https://hri.fi/data/en_GB/dataset/asuntotuotanto-helsingin-seudulla
 
 https://hri.fi/data/en_GB/dataset/helsingin-seudun-aloitetut-ja-valmistuneet-asunnot
+
+project website:
+
+https://housing-ai.streamlit.app/
 
 ## Overview
 
