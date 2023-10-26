@@ -8,6 +8,10 @@ https://hri.fi/data/en_GB/dataset/asuntotuotanto-helsingin-seudulla
 
 https://hri.fi/data/en_GB/dataset/helsingin-seudun-aloitetut-ja-valmistuneet-asunnot
 
+project website:
+
+https://housing-ai.streamlit.app/
+
 ## Overview
 
 This repository contains code and data for estimating the housing demand in the Helsinki Region for the upcoming years. The project aims to provide valuable insights to urban planners, developers, and policymakers to make informed decisions regarding housing development in the Helsinki Region.
