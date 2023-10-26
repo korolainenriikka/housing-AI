@@ -54,35 +54,35 @@ def get_aggregated_housing_metrics(housing_data: pd.DataFrame):
     # Get districts names.
     districts_names = housing_data["District"].unique()
 
-    # Houses build metrics
-    houses_build = housing_data[housing_data.Year <= 2019]
-    total_build_houses = int(houses_build["Pred_Num_Houses"].sum()) # This is a number.
-    agg_houses_build = houses_build.groupby("District")["Pred_Num_Houses"].sum()
-    greatest_num_houses_build = int(agg_houses_build.max()) # This is a number.
-    district_greatest_num_houses_build = districts_names[agg_houses_build.argmax()] # This is a string.
-    lowest_num_houses_build = int(agg_houses_build.min()) # This is a number.
-    district_lowest_num_houses_build = districts_names[agg_houses_build.argmin()] # This is a string.
+    # Apartments build metrics
+    apartments_build = housing_data[housing_data.Year <= 2019]
+    total_build_Apartments = int(apartments_build["Pred_Num_Apartments"].sum()) # This is a number.
+    agg_apartments_build = apartments_build.groupby("District")["Pred_Num_Apartments"].sum()
+    greatest_num_Apartments_build = int(agg_apartments_build.max()) # This is a number.
+    district_greatest_num_Apartments_build = districts_names[agg_apartments_build.argmax()] # This is a string.
+    lowest_num_Apartments_build = int(agg_apartments_build.min()) # This is a number.
+    district_lowest_num_Apartments_build = districts_names[agg_apartments_build.argmin()] # This is a string.
 
-    # Houses predictions metrics
-    houses_prediction = housing_data[housing_data.Year >= 2020]
-    total_predicted_houses = int(houses_prediction["Pred_Num_Houses"].sum()) # This is a number.
-    agg_houses_prediction = houses_prediction.groupby("District")["Pred_Num_Houses"].sum()
-    lowest_num_houses_prediction = int(agg_houses_prediction.min()) # This is a number.
-    district_lowest_num_houses_prediction = districts_names[agg_houses_prediction.argmin()] # This is a string.
-    greatest_num_houses_prediction = int(agg_houses_prediction.max()) # This is a number.
-    district_greatest_num_houses_prediction = districts_names[agg_houses_prediction.argmax()] # This is a string.
+    # Apartments predictions metrics
+    apartments_prediction = housing_data[housing_data.Year >= 2020]
+    total_predicted_Apartments = int(apartments_prediction["Pred_Num_Apartments"].sum()) # This is a number.
+    agg_apartments_prediction = apartments_prediction.groupby("District")["Pred_Num_Apartments"].sum()
+    lowest_num_Apartments_prediction = int(agg_apartments_prediction.min()) # This is a number.
+    district_lowest_num_Apartments_prediction = districts_names[agg_apartments_prediction.argmin()] # This is a string.
+    greatest_num_Apartments_prediction = int(agg_apartments_prediction.max()) # This is a number.
+    district_greatest_num_Apartments_prediction = districts_names[agg_apartments_prediction.argmax()] # This is a string.
 
     # Return metrics.
     return (
-        total_build_houses,
-        greatest_num_houses_build,
-        district_greatest_num_houses_build,
-        lowest_num_houses_build,
-        district_lowest_num_houses_build,
-        total_predicted_houses,
-        lowest_num_houses_prediction,
-        district_lowest_num_houses_prediction,
-        greatest_num_houses_prediction,
-        district_greatest_num_houses_prediction
+        total_build_Apartments,
+        greatest_num_Apartments_build,
+        district_greatest_num_Apartments_build,
+        lowest_num_Apartments_build,
+        district_lowest_num_Apartments_build,
+        total_predicted_Apartments,
+        lowest_num_Apartments_prediction,
+        district_lowest_num_Apartments_prediction,
+        greatest_num_Apartments_prediction,
+        district_greatest_num_Apartments_prediction
     )
    

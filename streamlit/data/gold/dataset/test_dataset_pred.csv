@@ -1,4 +1,4 @@
-,Year,Population,District,Num_Houses,Pred_Num_Houses
+,Year,Population,District,Num_Apartments,Pred_Num_Apartments
 0,2015,106935,Eteläinen,,971.1930784587785
 1,2016,108770,Eteläinen,1211.0,1101.621971282786
 2,2017,109874,Eteläinen,1810.0,1180.0925422243145
